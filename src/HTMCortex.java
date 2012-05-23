@@ -118,8 +118,8 @@ public class HTMCortex {
 
     // TODO: debug this value
     public Double averageReceptiveFieldSize() {
-        Double xDistance = 0.0;
-        Double yDistance = 0.0;
+        Double xDistance;
+        Double yDistance;
         Double result = 0.0;
         for(int i=0;i<this.columns.size();i++) {
             xDistance = 0.0;
@@ -156,10 +156,6 @@ public class HTMCortex {
         return aDC > mDC ? 1.0 : (1.0 + mDC*100);
     }
     
-    public HTMCell cell(Integer c, Integer i) {
-        return cells.get(c).get(i);
-    }
-
     public Boolean segmentActive(HTMSegment s, Integer t, State state) {
         LinkedList<LinkedList<Boolean>> list = state == State.active ?
                 activeState.get(t) : learnState.get(t);
@@ -261,11 +257,7 @@ public class HTMCortex {
             }
             for (int k=0; k < newSynapseCount - activeSynapses.size(); k++) {                
                 Integer[] idx;
-                if (learningCells.size() > 0)
-                    idx = learningCells.get(r.nextInt(learningCells.size()));
-                else
-                // TODO: Synapses for learning chosen by no rule, just randomly from whole scope;
-                    idx = new Integer[]{r.nextInt(xDimension*yDimension), r.nextInt(cellsPerColumn)};
+                idx = learningCells.get(r.nextInt(learningCells.size()));
                 activeSynapses.add(new HTMSynapse(idx[0], idx[1], initialPerm));
             }
         }
