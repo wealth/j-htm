@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="JMyron">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/JMyron.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/JMyron.jar!/" />
+    </SOURCES>
+  </library>
+</component>
