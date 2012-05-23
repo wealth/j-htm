@@ -6,7 +6,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1538ed6b-b3b6-4195-8ab0-ffb0773b1701" name="Default" comment="" />
+    <list default="true" id="1538ed6b-b3b6-4195-8ab0-ffb0773b1701" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ChartHandler.java" afterPath="$PROJECT_DIR$/src/ChartHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CortexThread.java" afterPath="$PROJECT_DIR$/src/CortexThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HTMConfiguration.form" afterPath="$PROJECT_DIR$/src/HTMConfiguration.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HTMConfiguration.java" afterPath="$PROJECT_DIR$/src/HTMConfiguration.java" />
+    </list>
     <ignored path="HTM.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,23 +78,25 @@
       <file leaf-file-name="HTMCortex.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HTMCortex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="19" selection-start="5994" selection-end="5994" vertical-scroll-proportion="0.0">
+            <state line="43" column="34" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTMConfiguration.form" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/HTMConfiguration.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
+      <file leaf-file-name="CortexThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CortexThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="71" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChartHandler.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChartHandler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChartHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="175" column="35" selection-start="7347" selection-end="7347" vertical-scroll-proportion="0.0">
+            <state line="186" column="73" selection-start="7818" selection-end="7818" vertical-scroll-proportion="0.66225165">
               <folding />
             </state>
           </provider>
@@ -102,6 +111,8 @@
   </component>
   <component name="Git.Settings">
     <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
+    <option name="SYNC_SETTING" value="DONT" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -116,11 +127,11 @@
         <option value="$PROJECT_DIR$/src/ExtensionGUI.java" />
         <option value="$PROJECT_DIR$/src/Extended.java" />
         <option value="$PROJECT_DIR$/src/ExtensionGUI.form" />
+        <option value="$PROJECT_DIR$/src/HTMCortex.java" />
+        <option value="$PROJECT_DIR$/src/HTMConfiguration.form" />
         <option value="$PROJECT_DIR$/src/CortexThread.java" />
         <option value="$PROJECT_DIR$/src/HTMConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/HTMCortex.java" />
         <option value="$PROJECT_DIR$/src/ChartHandler.java" />
-        <option value="$PROJECT_DIR$/src/HTMConfiguration.form" />
       </list>
     </option>
   </component>
@@ -133,7 +144,7 @@
     <option name="width" value="1616" />
     <option name="height" value="876" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -216,17 +227,21 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="recentsLimit" value="5" />
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -387,7 +402,7 @@
       <AnalysisUIOptions />
     </option>
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
     <option name="mySSHConnectionTimeout" value="30000" />
@@ -411,19 +426,24 @@
       <created>1330910377873</created>
       <updated>1330910377873</updated>
     </task>
+    <task id="LOCAL-00001" summary="new synapses only from learning cells">
+      <created>1337777124908</created>
+      <updated>1337777124908</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21470019" sideWeight="0.6703911" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21470019" sideWeight="0.6703911" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25789812" sideWeight="0.6703911" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25789812" sideWeight="0.6703911" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24951644" sideWeight="0.66201115" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39944133" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33798882" sideWeight="0.4977434" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5003224" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -431,8 +451,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24951644" sideWeight="0.66201115" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946485" sideWeight="0.6703911" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997421" sideWeight="0.66201115" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14829142" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.4977434" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14829142" sideWeight="0.6703911" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.49516442" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -477,7 +497,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="new synapses only from learning cells" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -490,6 +510,7 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="new synapses only from learning cells" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -502,11 +523,6 @@
     <entry file="file://$PROJECT_DIR$/src/ExtensionGUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTMConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="10" selection-start="1778" selection-end="1778" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HTMSegment.java">
@@ -534,28 +550,37 @@
         <state line="7" column="31" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CortexThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0" />
+    <entry file="file://$PROJECT_DIR$/src/HTMConfiguration.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChartHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/HTMConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="35" selection-start="7347" selection-end="7347" vertical-scroll-proportion="0.0">
+        <state line="95" column="45" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HTMCortex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="19" selection-start="5994" selection-end="5994" vertical-scroll-proportion="0.0">
+        <state line="43" column="34" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HTMConfiguration.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/CortexThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="71" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChartHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="186" column="73" selection-start="7818" selection-end="7818" vertical-scroll-proportion="0.66225165">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

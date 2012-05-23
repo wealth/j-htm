@@ -11,9 +11,9 @@ public class CortexThread extends Thread{
 
     }
 
-    public void Init(Chart2D chart, HTMConfiguration configuration) {
+    public void Init(Chart2D chart1, Chart2D chart2, HTMConfiguration configuration) {
         region.SInitialization();
-        chartHandler = new ChartHandler(chart, configuration);
+        chartHandler = new ChartHandler(chart1, chart2, configuration);
     }
 
     public void run() {

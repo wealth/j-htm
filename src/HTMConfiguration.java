@@ -54,6 +54,7 @@ public class HTMConfiguration {
     private JButton showExtendedGUIButton;
     public JCheckBox inputsGraphicsCheckBox;
     private JTabbedPane tabbedPane1;
+    private Chart2D chart2D2;
 
     CortexThread crtx = new CortexThread();
     static HTMConfiguration panel;
@@ -92,7 +93,7 @@ public class HTMConfiguration {
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }
-        crtx.Init(chart2D1, panel);
+        crtx.Init(chart2D1, chart2D2, panel);
     }
 
     public class RunCortexButtonListener implements ActionListener {

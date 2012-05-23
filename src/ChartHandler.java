@@ -1,12 +1,15 @@
 import info.monitorenter.gui.chart.Chart2D;
 import info.monitorenter.gui.chart.ITrace2D;
+import info.monitorenter.gui.chart.TracePoint2D;
 import info.monitorenter.gui.chart.traces.Trace2DSimple;
 import info.monitorenter.gui.chart.traces.painters.TracePainterDisc;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ChartHandler {
-    private Chart2D chart2D;
+    private Chart2D chart2D1;
+    private Chart2D chart2D2;
     private HTMConfiguration cfg;
     Boolean showDistalSegmentsCount = false;
     Boolean perm = false;
@@ -31,10 +34,11 @@ public class ChartHandler {
     ITrace2D traceODC = new Trace2DSimple("Overlap Duty Cycle");
     ITrace2D traceBST = new Trace2DSimple("Column Boost");
     ITrace2D traceINP = new Trace2DSimple("Inputs Graphic");
+    ITrace2D traceTMLN = new Trace2DSimple("Progress in Time");
 
-
-    public ChartHandler(Chart2D chart, HTMConfiguration configuration) {
-        this.chart2D = chart;
+    public ChartHandler(Chart2D chart1, Chart2D chart2, HTMConfiguration configuration) {
+        this.chart2D1 = chart1;
+        this.chart2D2 = chart2;
         this.cfg = configuration;
         showDistalSegmentsCount = cfg.showDendritesGraphCheckBox.isSelected();
         perm = cfg.showSynapsesPermanenceCheckBox.isSelected();
@@ -48,65 +52,68 @@ public class ChartHandler {
         bst = cfg.showBoostCheckBox.isSelected();
         inp = cfg.inputsGraphicsCheckBox.isSelected();
 
-        this.chart2D.removeAllTraces();
+        this.chart2D1.removeAllTraces();
+        //this.chart2D2.removeAllTraces();
         if (act) {
-            chart2D.addTrace(traceA);
+            chart2D1.addTrace(traceA);
             traceA.setColor(Color.CYAN);
             traceA.setTracePainter(new TracePainterDisc(4));
         }
         if (learn) {
-            chart2D.addTrace(traceL);
+            chart2D1.addTrace(traceL);
             traceL.setColor(Color.MAGENTA);
             traceL.setTracePainter(new TracePainterDisc(4));
         }
         if (predict) {
-            chart2D.addTrace(traceP);
+            chart2D1.addTrace(traceP);
             traceP.setColor(Color.BLUE);
             traceP.setTracePainter(new TracePainterDisc(4));
         }
         if (showDistalSegmentsCount) {
-            chart2D.addTrace(traceD);
+            chart2D1.addTrace(traceD);
             traceD.setTracePainter(new TracePainterDisc(4));
+
+            chart2D2.addTrace(traceTMLN);
         }
         if (perm) {
-            chart2D.addTrace(traceS);
+            chart2D1.addTrace(traceS);
             traceS.setColor(Color.BLUE);
             traceS.setTracePainter(new TracePainterDisc(4));
         }
         if (over) {
-            chart2D.addTrace(traceO);
+            chart2D1.addTrace(traceO);
             traceO.setColor(Color.RED);
             traceO.setTracePainter(new TracePainterDisc(4));
         }
         if (adc) {
-            chart2D.addTrace(traceADC);
+            chart2D1.addTrace(traceADC);
             traceADC.setColor(Color.GREEN);
             traceADC.setTracePainter(new TracePainterDisc(4));
         }
         if (mdc) {
-            chart2D.addTrace(traceMDC);
+            chart2D1.addTrace(traceMDC);
             traceMDC.setColor(Color.GRAY);
             traceMDC.setTracePainter(new TracePainterDisc(4));
         }
         if (odc) {
-            chart2D.addTrace(traceODC);
+            chart2D1.addTrace(traceODC);
             traceODC.setColor(Color.ORANGE);
             traceODC.setTracePainter(new TracePainterDisc(4));
         }
         if (bst) {
-            chart2D.addTrace(traceBST);
+            chart2D1.addTrace(traceBST);
             traceBST.setColor(Color.DARK_GRAY);
             traceBST.setTracePainter(new TracePainterDisc(4));
         }
         if (inp) {
-            chart2D.addTrace(traceINP);
+            chart2D1.addTrace(traceINP);
             traceINP.setColor(Color.RED);
             traceINP.setTracePainter(new TracePainterDisc(4));
         }
     }
 
     public void CollectData() {
-        for(ITrace2D trace2D: chart2D.getTraces()) {
+        for(ITrace2D trace2D: chart2D1.getTraces()) {
             trace2D.removeAllPoints();
         }
         Integer time = cfg.crtx.region.time - 1 > 0 ? cfg.crtx.region.time - 1 : 0;
@@ -118,6 +125,7 @@ public class ChartHandler {
             }
         }
         String buf = "";
+        int overalDSCount = 0;
         buf += "Cells Activity: \r\n" + "Timestep: " + cfg.crtx.region.totalTime + "\r\n";
         buf += "Inhibition Radius: " + cfg.crtx.region.inhibitionRadius + "\r\n";
         if (cfg.crtx.region.activeColumns.size() > 0)
@@ -157,10 +165,12 @@ public class ChartHandler {
                     val = cfg.crtx.region.predictiveState.get(time).get(c).get(i);
                     traceP.addPoint(c, val ? i+1 * 1.0: 0.0);
                 }
+
                 if (showDistalSegmentsCount) {
                     Integer size = cfg.crtx.region.dendriteSegments.get(c).get(i).size();
                     traceD.addPoint(c, i+1 * size);
                     buf += "C: " + c + " I: " + i + " N: " + size + " # ";
+                    overalDSCount += size;
                 }
             }
             if (perm) {
@@ -173,6 +183,8 @@ public class ChartHandler {
             }
             buf += "\r\n";
         }
+        if (showDistalSegmentsCount)
+            traceTMLN.addPoint(cfg.crtx.region.totalTime, overalDSCount);
         cfg.textPane1.setText(buf);
     }
 }
