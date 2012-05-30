@@ -67,6 +67,7 @@ public class HTMCortex {
     public Integer input(Integer t, Integer j, Integer k) {
         return Math.sin(j+k+totalTime) > 0 ? 1 : 0;
         //return rnd.nextInt(2);
+        //return t % 2 > 0 ? rnd.nextInt(2) : Math.sin(j+k+totalTime) > 0 ? 1 : 0;
     }
 
     public LinkedList<Integer> neighbours(Integer c) {
@@ -157,11 +158,11 @@ public class HTMCortex {
     }
     
     public Boolean segmentActive(HTMSegment s, Integer t, State state) {
-        LinkedList<LinkedList<Boolean>> list = state == State.active ?
+        LinkedList<LinkedList<Boolean>> list = state.equals(State.active) ?
                 activeState.get(t) : learnState.get(t);
         Integer counter = 0;
         for(HTMSynapse syn: s.synapses) {
-            if(list.get(syn.c).get(syn.i) && syn.permanence > connectedPerm) {
+            if(list.get(syn.c).get(syn.i)) {
                 counter++;
             }
         }
@@ -218,22 +219,39 @@ public class HTMCortex {
                 result = j;
             }
         }
-        return result > minThreshold ? new Integer[]{c, i, result} : new Integer[]{c, i, -1};
+        return maxActivity > minThreshold ? new Integer[]{c, i, result} : new Integer[]{c, i, -1};
     }
 
     public Integer[] getBestMatchingCell(Integer c, Integer t) {
         Integer minSegments = null;
         Integer cellIndex = -1;
+        Integer minSegmentsCellIndex = -1;
+
+        LinkedList<LinkedList<Boolean>> list = activeState.get(t);
+        Integer maxActivity = 0;
+        Integer result = -1;
+
         for(int i=0;i<cellsPerColumn;i++) {
-            Integer s = getBestMatchingSegment(c, i, t)[2];
-            if (s >= 0)
-                return new Integer[]{c, i, s};
+            for(int j = 0; j < dendriteSegments.get(c).get(i).size(); j++) {
+                Integer counter = 0;
+                HTMSegment segment = dendriteSegments.get(c).get(i).get(j);
+                for(HTMSynapse syn: segment.synapses) {
+                    if(list.get(syn.c).get(syn.i)) {
+                        counter++;
+                    }
+                }
+                if (maxActivity < counter) {
+                    maxActivity = counter;
+                    result = j;
+                    cellIndex = i;
+                }
+            }
             if (minSegments == null || minSegments > dendriteSegments.get(c).get(i).size()) {
                 minSegments = dendriteSegments.get(c).get(i).size();
-                cellIndex = i;
+                minSegmentsCellIndex = i;
             }
         }
-        return new Integer[]{c, cellIndex, -1};
+        return maxActivity > minThreshold ? new Integer[]{c, cellIndex, result} : new Integer[]{c, minSegmentsCellIndex, -1};
     }
 
     public segmentUpdate getSegmentActiveSynapses(Integer c, Integer i, Integer t, Integer s, Boolean newSynapses) {
@@ -266,11 +284,13 @@ public class HTMCortex {
 
     public void adaptSegments(LinkedList<segmentUpdate> segmentList, Boolean positiveReinforcement) {
         for(segmentUpdate segUpd: segmentList) {
+            // System.out.print(segUpd.segmentIndex[2] + "\r\n");
             if (segUpd.segmentIndex[2] < 0) {
-                dendriteSegments.get(segUpd.segmentIndex[0]).get(segUpd.segmentIndex[1]).add(new HTMSegment());
+                HTMSegment newSegment = new HTMSegment();
                 for(HTMSynapse syn: segUpd.activeSynapses) {
-                    dendriteSegments.get(segUpd.segmentIndex[0]).get(segUpd.segmentIndex[1]).getLast().synapses.add(syn);
+                    newSegment.synapses.add(syn);
                 }
+                dendriteSegments.get(segUpd.segmentIndex[0]).get(segUpd.segmentIndex[1]).add(newSegment);
             } else {
                 for(HTMSynapse syn: dendriteSegments.get(segUpd.segmentIndex[0]).get(segUpd.segmentIndex[1])
                         .get(segUpd.segmentIndex[2]).synapses) {
@@ -355,7 +375,7 @@ public class HTMCortex {
                 segmentUpdateList.get(c).add(new LinkedList<segmentUpdate>());
                 for(int k = 0; k < 2; k++) {
                     dendriteSegments.get(c).get(i).add(new HTMSegment());
-                    for(int s=0; s < 30; s++) {
+                    for(int s=0; s < newSynapseCount; s++) {
                         Integer col = rnd.nextInt(xDimension*yDimension);
                         Integer cell = rnd.nextInt(cellsPerColumn);
                         dendriteSegments.get(c).get(i).get(k).synapses.add(new HTMSynapse(col, cell,
@@ -395,7 +415,6 @@ public class HTMCortex {
         }
     }
 
-    // TODO: Learning
     public void SLearning() {
         for(Integer c: activeColumns.get(time)) {
             for(HTMSynapse s: potentialSynapses.get(c)) {

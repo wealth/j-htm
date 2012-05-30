@@ -169,7 +169,8 @@ public class ChartHandler {
                 if (showDistalSegmentsCount) {
                     Integer size = cfg.crtx.region.dendriteSegments.get(c).get(i).size();
                     traceD.addPoint(c, i+1 * size);
-                    buf += "C: " + c + " I: " + i + " N: " + size + " # ";
+                    buf += "C: " + c + " I: " + i + " N: " + size + " L: " +
+                            cfg.crtx.region.learnState.get(time).get(c).get(i) + " # ";
                     overalDSCount += size;
                 }
             }
@@ -185,6 +186,7 @@ public class ChartHandler {
         }
         if (showDistalSegmentsCount)
             traceTMLN.addPoint(cfg.crtx.region.totalTime, overalDSCount);
+        buf += "Overall Dendrite Segments Count: " + overalDSCount + "\r\n";
         cfg.textPane1.setText(buf);
     }
 }
