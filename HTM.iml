@@ -7,8 +7,11 @@
     </content>
     <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jchart2d-3.2.2" level="project" />
     <orderEntry type="library" name="JMyron" level="project" />
+    <orderEntry type="library" name="casmi-0.1.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="pdfbox-1.7.0" level="project" />
+    <orderEntry type="library" name="gluegen-rt" level="project" />
+    <orderEntry type="library" name="jchart2d-3.2.2 (2)" level="project" />
   </component>
 </module>
 
