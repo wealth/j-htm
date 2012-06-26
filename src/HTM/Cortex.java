@@ -1,5 +1,7 @@
 package HTM;
 
+import applet.ExtensionGUI;
+
 import java.util.LinkedList;
 import java.util.Arrays;
 import java.util.Random;
@@ -66,7 +68,21 @@ public class Cortex {
     public Integer input(Integer t, Integer j, Integer k) {
         //return Math.sin(j+k+totalTime) > 0 ? 1 : 0;
         //return rnd.nextInt(2);
-        return t % 2 > 0 ? rnd.nextInt(2) : Math.sin(j+k+totalTime) > 0 ? 1 : 0;
+        if (ExtensionGUI.Input == null)
+            return t % 2 > 0 ? rnd.nextInt(2) : Math.sin(j+k+totalTime) > 0 ? 1 : 0;
+        else {
+            byte[] buffer = ExtensionGUI.Input;
+            int l = buffer.length;
+            int width = l / xDimension;
+            int height = 256 / yDimension;
+            int amount = 0;
+            for (int i = j * width; i < (j+1)*width; i++) {
+                if ((k+1)*height - 128 < buffer[j] && buffer[j] > k*height - 128)
+                    amount ++;
+            }
+            // System.out.println("by x:" + j * width + " " + (j+1)*width + " by y: " + (k+1)*height + " " + k*height + " is " + amount);
+            return amount > width / 10 ? 1 : 0;
+        }
     }
 
     public LinkedList<Integer> neighbours(Integer c) {
@@ -267,12 +283,12 @@ public class Cortex {
             LinkedList<Integer[]> learningCells = new LinkedList<Integer[]>();
             for (int j = 0; j < learnState.get(t).size();j++) {
                 for (int k = 0; k < learnState.get(t).get(j).size();k++) {
-                    if (learnState.get(t).get(j).get(k)) {
+                    if (learnState.get(t).get(j).get(k) && !(c.equals(j) && i.equals(k))) {
                         learningCells.add(new Integer[]{j, k});
                     }
                 }
             }
-            for (int k=0; k < newSynapseCount - activeSynapses.size(); k++) {                
+            for (int k=0; k < newSynapseCount - activeSynapses.size(); k++) {
                 Integer[] idx;
                 idx = learningCells.get(r.nextInt(learningCells.size()));
                 activeSynapses.add(new Synapse(idx[0], idx[1], initialPerm));
@@ -373,15 +389,6 @@ public class Cortex {
                 predictiveState.get(time).get(c).add(false);
                 dendriteSegments.get(c).add(new LinkedList<Segment>());
                 segmentUpdateList.get(c).add(new LinkedList<segmentUpdate>());
-                for(int k = 0; k < 2; k++) {
-                    dendriteSegments.get(c).get(i).add(new Segment());
-                    for(int s=0; s < newSynapseCount; s++) {
-                        Integer col = rnd.nextInt(xDimension*yDimension);
-                        Integer cell = rnd.nextInt(cellsPerColumn);
-                        dendriteSegments.get(c).get(i).get(k).synapses.add(new Synapse(col, cell,
-                                connectedPerm + connectedPerm / 2.0 - (rnd.nextDouble()/10.0)));
-                    }
-                }
             }
         }
 
@@ -407,7 +414,6 @@ public class Cortex {
         activeColumns.add(new LinkedList<Integer>());
         for(int i=0;i<xDimension*yDimension;i++) {
             Double minLocalActivity = kthScore(neighbours(i), desiredLocalActivity);
-            
 
             if (overlap[i] > 0.0 && overlap[i] >= minLocalActivity) {
                 activeColumns.get(time).add(i);
@@ -470,9 +476,11 @@ public class Cortex {
             if (!lcChosen) {
                 Integer[] lc = getBestMatchingCell(c, time-1 > 0 ? time-1 : 0);
                 learnState.get(time).get(c).set(lc[1], true);
-                segmentUpdate sUpdate = getSegmentActiveSynapses(c, lc[1], time-1 > 0 ? time-1 : 0, lc[2], true);
-                sUpdate.sequenceSegment = true;
-                segmentUpdateList.get(c).get(lc[1]).add(sUpdate);
+                if (time-1 >= 0) {
+                    segmentUpdate sUpdate = getSegmentActiveSynapses(c, lc[1], time-1, lc[2], true);
+                    sUpdate.sequenceSegment = true;
+                    segmentUpdateList.get(c).get(lc[1]).add(sUpdate);
+                }
             }
         }
     }

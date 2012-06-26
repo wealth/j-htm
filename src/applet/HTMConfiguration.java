@@ -123,14 +123,14 @@ public class HTMConfiguration {
 
     private class ShowExtendedGUIListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-//            JFrame frame = new JFrame("Extended GUI");
-//            ExtensionGUI panel = new ExtensionGUI();
-//            frame.setContentPane(panel.extensionGUI);
-//            frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-//            frame.pack();
-//            frame.setVisible(true);
+            JFrame frame = new JFrame("Extended GUI");
+            ExtensionGUI panel = new ExtensionGUI();
+            frame.setContentPane(panel.extensionGUI);
+            frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
 
-              CasmiApplet.launch(crtx.region);
+//              CasmiApplet.launch(crtx.region);
         }
     }
 }

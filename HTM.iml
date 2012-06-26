@@ -12,6 +12,7 @@
     <orderEntry type="library" name="pdfbox-1.7.0" level="project" />
     <orderEntry type="library" name="gluegen-rt" level="project" />
     <orderEntry type="library" name="jchart2d-3.2.2 (2)" level="project" />
+    <orderEntry type="library" name="jtransforms-2.4" level="project" />
   </component>
 </module>
 
