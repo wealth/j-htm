@@ -177,7 +177,7 @@ public class Cortex {
                 activeState.get(t) : learnState.get(t);
         Integer counter = 0;
         for(Synapse syn: s.synapses) {
-            if(list.get(syn.c).get(syn.i)) {
+            if(list.get(syn.c).get(syn.i) && syn.permanence > connectedPerm) {
                 counter++;
             }
         }
